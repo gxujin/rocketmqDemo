@@ -1,0 +1,32 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: rocketmqdemo
+
+rocketmq:
+  client:
+    ##rocketMQ日志配置
+    ##logUseSlf4j是true则和系统日志一起输出，false则参数【logRoot、logFileMaxIndex、logFileMaxSize、logLevel】需配置
+    logUseSlf4j: false
+    ##日志位置，默认user.home/logs/rocketmqlogs
+    logRoot: D:/logs/rocketmqlogs
+    ##文件数，默认10个
+    logFileMaxIndex: 10
+    ##文件大小，默认1G = 1*1024*1024*1024 = 1073741824，单位为byte
+    logFileMaxSize: 1073741824
+    ##日志级别，默认INFO
+    logLevel: INFO
+
+  ##单机环境
+  name-server: 192.168.252.190:9876
+  ##集群环境
+  #name-server: 10.138.121.73:9876;10.138.121.74:9876
+  producer:
+    group: test-producer-group
+    topic:
+      test: test-topic
+
+
+
